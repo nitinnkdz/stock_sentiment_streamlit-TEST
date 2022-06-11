@@ -11,8 +11,7 @@ import json # for graph plotting in website
 import nltk
 nltk.downloader.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-
- selected1 = option_menu(None, ["Market Crunch", "Ticker-News", "Analysis of News" ],
+selected1 = option_menu(None, ["Market Crunch", "Ticker-News", "Analysis of News" ],
                             menu_icon="cast", default_index=0, orientation="horizontal")
 
     if selected1 == 'Market Crunch':
