@@ -13,8 +13,7 @@ nltk.downloader.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 selected1 = option_menu(None, ["Market Crunch", "Ticker-News", "Analysis of News" ],
                             menu_icon="cast", default_index=0, orientation="horizontal")
-
-    if selected1 == 'Market Crunch':
+if selected1 == 'Market Crunch':
         finnhub_client = finnhub.Client(api_key="c2tiabaad3i9opcku8r0")
         news = finnhub_client.general_news('general', min_id=0)
         for news in news:
@@ -25,8 +24,8 @@ selected1 = option_menu(None, ["Market Crunch", "Ticker-News", "Analysis of News
             st.image(news['image'])
             st.markdown(news['summary'])
             st.write(news['url'])
-
-    if selected1 == 'Ticker-News':
+	
+if selected1 == 'Ticker-News':
         nsymbol = st.text_input("Enter the Ticker", value='TSLA', max_chars=10)
         url = f"https://api.polygon.io/v2/reference/news?limit=100&sort=published_utc&ticker={nsymbol}&published_utc.gte=2021-04-26&apiKey=l7CZdzU2ElYhYaDCj5QQeyVUxMgr7UPZ"
         r = requests.get(url)
@@ -38,7 +37,7 @@ selected1 = option_menu(None, ["Market Crunch", "Ticker-News", "Analysis of News
             st.image(results['image_url'])
             st.write(results['article_url'])
 
-    if selected1 == 'Analysis of News':
+if selected1 == 'Analysis of News':
 	def get_news(ticker):
 	    url = finviz_url + ticker
 	    req = Request(url=url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0'}) 
