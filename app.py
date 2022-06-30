@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import plotly
 import finnhub
+import requests
 from datetime import datetime, date
 from datetime import timedelta
 import plotly.express as px
