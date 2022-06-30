@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import plotly
 import finnhub
+from datetime import datetime, date
+from datetime import timedelta
 import plotly.express as px
 import json # for graph plotting in website
 # NLTK VADER for sentiment analysis
@@ -16,14 +18,14 @@ selected1 = option_menu(None, ["Market Crunch", "Ticker-News", "Analysis of News
 if selected1 == 'Market Crunch':
     finnhub_client = finnhub.Client(api_key="c2tiabaad3i9opcku8r0")
     news = finnhub_client.general_news('general', min_id=0)
-    for news in news:
-        st.header(news['headline'])
-        st.write(news['category'])
-        posix_time = (news['datetime'])
-        st.text(datetime.utcfromtimestamp(posix_time).strftime('%Y-%m-%dT%H:%M:%SZ'))
-        st.image(news['image'])
-        st.markdown(news['summary'])
-        st.write(news['url'])
+            for news in news:
+            st.header(news['headline'])
+            st.write(news['category'])
+            posix_time = (news['datetime'])
+            st.text(datetime.utcfromtimestamp(posix_time).strftime('%Y-%m-%dT%H:%M:%SZ'))
+            st.image(news['image'])
+            st.markdown(news['summary'])
+            st.write(news['url'])
 
 if selected1 == 'Ticker-News':
     symbol = st.text_input("Enter the Ticker", value='TSLA', max_chars=10)
