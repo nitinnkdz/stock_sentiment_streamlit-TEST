@@ -28,16 +28,16 @@ if selected1 == 'Market Crunch':
       st.write(news['url'])
 
 if selected1 == 'Ticker-News':
-    symbol = st.text_input("Enter the Ticker", value='TSLA', max_chars=10)
-    url = f"https://api.polygon.io/v2/reference/news?limit=100&sort=published_utc&ticker={nsymbol}&published_utc.gte=2021-04-26&apiKey=l7CZdzU2ElYhYaDCj5QQeyVUxMgr7UPZ"
-    r = requests.get(url)
-    data = r.json()
-    for results in data['results']:
-        st.header(results['title'])
-        st.write(results['author'])
-        st.write(results['published_utc'])
-        st.image(results['image_url'])
-        st.write(results['article_url'])
+  nsymbol = st.text_input("Enter the Ticker", value='TSLA', max_chars=10)
+  url = f"https://api.polygon.io/v2/reference/news?limit=100&sort=published_utc&ticker={nsymbol}&published_utc.gte=2021-04-26&apiKey=l7CZdzU2ElYhYaDCj5QQeyVUxMgr7UPZ"
+  r = requests.get(url)
+  data = r.json()
+  for results in data['results']:
+    st.header(results['title'])
+    st.write(results['author'])
+    st.write(results['published_utc'])
+    st.image(results['image_url'])
+    st.write(results['article_url'])
 
 if selected1 == 'Analysis of News':
     def get_news(ticker):
